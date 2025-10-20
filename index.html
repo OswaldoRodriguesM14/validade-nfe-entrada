@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validador NFe - Smartsheet Inc.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo-icon">📋</div>
+        <div>
+          <h1>VALIDADOR NFe</h1>
+          <p class="subtitle">Smartsheet Inc.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <div class="container">
+    <!-- Card de Seleção de Pasta -->
+    <div class="card" id="selectionCard">
+      <div class="card-header">
+        <h2 class="card-title">Selecione a Pasta com os XMLs</h2>
+        <p class="card-description">
+          Escolha a pasta que contém os arquivos XML das Notas Fiscais de Entrada que deseja validar.
+          O sistema irá processar todos os arquivos XML encontrados na pasta selecionada.
+        </p>
+      </div>
+
+      <div class="folder-selection" id="folderSelection">
+        <span class="folder-path" id="folderPath">Nenhuma pasta selecionada</span>
+        <button class="btn btn-primary" id="selectFolderBtn">
+          <span>📁</span>
+          Selecionar Pasta
+        </button>
+      </div>
+
+      <div class="mt-3">
+        <div class="input-group">
+          <label class="input-label" for="apiUrl">URL da API Localhost</label>
+          <div class="input-with-icon">
+            <span class="input-icon">🔗</span>
+            <input 
+              type="text" 
+              id="apiUrl" 
+              class="input" 
+              placeholder="http://localhost:3000/api/validar"
+              value="http://localhost:3000/api/validar"
+            >
+          </div>
+        </div>
+
+        <button class="btn btn-warning" id="processBtn" disabled>
+          <span>⚡</span>
+          Processar XMLs
+        </button>
+      </div>
+    </div>
+
+    <!-- Card de Loading -->
+    <div class="card hidden" id="loadingCard">
+      <div class="loading">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Processando XMLs...</p>
+        <div class="loading-progress">
+          <div class="loading-progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <p class="loading-progress-text" id="progressText">0 de 0 arquivos processados</p>
+      </div>
+    </div>
+
+    <!-- Card de Resultados -->
+    <div class="card hidden" id="resultsCard">
+      <div class="card-header">
+        <h2 class="card-title">Resultados da Validação</h2>
+        <p class="card-description">
+          Confira abaixo o resultado da validação de todas as Notas Fiscais processadas.
+        </p>
+      </div>
+
+      <!-- Resumo -->
+      <div class="results-summary">
+        <div class="summary-card total">
+          <div class="summary-value" id="totalCount">0</div>
+          <div class="summary-label">Total de Notas</div>
+        </div>
+        <div class="summary-card success">
+          <div class="summary-value" id="successCount">0</div>
+          <div class="summary-label">✓ Válidas</div>
+        </div>
+        <div class="summary-card error">
+          <div class="summary-value" id="errorCount">0</div>
+          <div class="summary-label">✗ Com Erros</div>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="mb-3" style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn btn-ghost" id="filterAll">Todas</button>
+        <button class="btn btn-ghost" id="filterSuccess">Apenas Válidas</button>
+        <button class="btn btn-ghost" id="filterError">Apenas com Erros</button>
+      </div>
+
+      <!-- Lista de NFes -->
+      <div class="nfe-list" id="nfeList">
+        <!-- Os itens serão inseridos dinamicamente aqui -->
+      </div>
+
+      <!-- Botão para nova validação -->
+      <div class="mt-4 text-center">
+        <button class="btn btn-primary" id="newValidationBtn">
+          <span>🔄</span>
+          Nova Validação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
+

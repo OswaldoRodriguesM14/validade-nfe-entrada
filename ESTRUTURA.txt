@@ -1,0 +1,21 @@
+.
+├── CHANGELOG.md
+├── ESTRUTURA.txt
+├── GUIA_RAPIDO.md
+├── INTEGRACAO_API.md
+├── LICENSE
+├── README.md
+├── api-example
+│   ├── package.json
+│   └── server.js
+├── assets
+│   └── icon.svg
+├── build.bat
+├── index.html
+├── main.js
+├── package.json
+├── renderer.js
+├── start.bat
+└── styles.css
+
+2 directories, 16 files
