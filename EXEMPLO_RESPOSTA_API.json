@@ -1,0 +1,19 @@
+{
+  "status": "error",
+  "nfeNumber": "11181006881518000168550010000181811181810000",
+  "supplier": "Fornecedor LTDA",
+  "value": "R$ 1.500,00",
+  "date": "2024-10-20",
+  "itemCount": 5,
+  "dbItemCount": 5,
+  "errors": [
+    {
+      "item": "Item 1 - Produto X",
+      "message": "Divergência de valor: Esperado R$ 100,00, encontrado R$ 95,00"
+    },
+    {
+      "item": "Item 3 - Produto Z",
+      "message": "Quantidade divergente: Esperado 10, encontrado 8"
+    }
+  ]
+}
